@@ -1,191 +1,462 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ziyabo | Global Technology Consulting</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <style>
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Inter', sans-serif; letter-spacing: -0.01em; }
-        h1, h2, h3, .nav-item { font-family: 'Montserrat', sans-serif; }
-        .bg-navy { background-color: #0d1e3d; }
-        .text-cyan { color: #00acc1; }
-        .nav-link { position: relative; transition: all 0.3s ease; }
-        .nav-link::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -4px; left: 0; background-color: #00acc1; transition: width 0.3s; }
-        .nav-link:hover::after { width: 100%; }
-        .hero-overlay { background: linear-gradient(90deg, rgba(13, 30, 61, 0.9) 0%, rgba(13, 30, 61, 0.4) 100%); }
-    </style>
-</head>
-<body class="bg-white text-slate-900">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ziyabo | Engineering Intelligence — Custom Software, AI & Cloud Consulting</title>
+<meta name="description" content="Ziyabo engineers custom software, mobile, AI and cloud platforms for real business operations — flagship products include a Custom ERP Platform and GymBinary, across India, the UAE and Saudi Arabia.">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="Ziyabo_logo.png">
+<style>
+    :root{
+        --navy: #081120;
+        --navy-2: #0d1e3d;
+        --navy-3: #14294d;
+        --teal: #17b6c4;
+        --teal-light: #6fe3ea;
+        --gold: #c9a227;
+        --gold-light: #e8c766;
+        --paper: #f7f8fb;
+    }
+    html{ scroll-behavior: smooth; }
+    body{ font-family:'Inter',sans-serif; letter-spacing:-0.01em; background:#fff; color:#0f172a; }
+    h1,h2,h3,.nav-item{ font-family:'Montserrat',sans-serif; }
 
+    .bg-navy{ background-color: var(--navy); }
+    .bg-navy-2{ background-color: var(--navy-2); }
+    .bg-navy-3{ background-color: var(--navy-3); }
+    .bg-paper{ background-color: var(--paper); }
+    .text-navy{ color: var(--navy); }
+    .text-teal{ color: var(--teal); }
+    .bg-teal{ background-color: var(--teal); }
+    .border-teal{ border-color: var(--teal); }
+    .text-gold{ color: var(--gold); }
+    .bg-gold{ background-color: var(--gold); }
+    .border-gold{ border-color: var(--gold); }
+
+    .eyebrow{ font-family:'Montserrat',sans-serif; font-weight:700; font-size:11px; letter-spacing:.15em; text-transform:uppercase; color:var(--teal); }
+    .eyebrow-gold{ font-family:'Montserrat',sans-serif; font-weight:700; font-size:11px; letter-spacing:.15em; text-transform:uppercase; color:var(--gold); }
+
+    .nav-link{ position:relative; transition:color .3s ease; }
+    .nav-link::after{ content:''; position:absolute; width:0; height:2px; bottom:-6px; left:0; background-color:var(--teal); transition:width .3s; }
+    .nav-link:hover::after{ width:100%; }
+
+    .hero-overlay{ background: linear-gradient(100deg, rgba(8,17,32,.96) 8%, rgba(8,17,32,.78) 45%, rgba(8,17,32,.45) 100%); }
+
+    .dot-field{
+        background-image: radial-gradient(rgba(201,162,39,.35) 1px, transparent 1.5px);
+        background-size: 22px 22px;
+    }
+
+    .card{ border:1px solid rgba(15,23,42,.08); transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
+    .card:hover{ transform: translateY(-4px); box-shadow: 0 20px 40px -18px rgba(8,17,32,.25); border-color: rgba(23,182,196,.35); }
+
+    .chip{ font-size:12px; font-weight:600; letter-spacing:.03em; padding:8px 16px; border:1px solid rgba(255,255,255,.16); color:#cbd5e1; border-radius:999px; }
+
+    .dropdown{ opacity:0; visibility:hidden; transform: translateY(6px); transition: all .18s ease; }
+    .group:hover .dropdown, .group:focus-within .dropdown{ opacity:1; visibility:visible; transform: translateY(0); }
+
+    .num-badge{ font-family:'Montserrat',sans-serif; font-weight:800; font-size:13px; color:var(--gold); border:1px solid rgba(201,162,39,.5); width:34px; height:34px; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+
+    .service-icon{ width:52px; height:52px; border-radius:14px; background: linear-gradient(135deg, rgba(23,182,196,.12), rgba(201,162,39,.12)); display:flex; align-items:center; justify-content:center; margin:0 auto 20px; color:var(--navy-2); }
+    .service-icon svg{ stroke: var(--navy-2); }
+    .card:hover .service-icon{ background: var(--navy-2); }
+    .card:hover .service-icon svg{ stroke:#fff; }
+
+    #mobile-panel{ max-height:0; overflow:hidden; transition:max-height .35s ease; }
+    #mobile-panel.open{ max-height:640px; }
+
+    .mod-dot{ width:7px; height:7px; border-radius:50%; background:var(--gold); flex-shrink:0; margin-top:8px; }
+</style>
+</head>
+<body class="bg-white text-slate-900 antialiased">
+
+    <!-- NAV -->
     <nav class="bg-white/95 backdrop-blur-md sticky top-0 z-50 border-b border-slate-100">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="flex justify-between h-20 items-center">
-                <div class="flex items-center">
-                    <img src="Ziyabo logo.png"alt="Ziyabo" style="height: 156px; width: auto;">
+            <div class="flex justify-between h-24 items-center">
+                <a href="#home" class="flex flex-col items-start justify-center leading-none">
+                    <img src="Ziyabo_logo_mark.png" alt="Ziyabo" style="height:62px; width:auto;">
+                    <span class="text-[10px] font-bold uppercase tracking-[0.3em] text-slate-500 mt-1.5">Engineering Intelligence</span>
+                </a>
+
+                <div class="hidden lg:flex items-center space-x-8 font-semibold text-[11px] uppercase tracking-[0.15em] text-slate-600">
+                    <a href="#capabilities" class="nav-link">Capabilities</a>
+
+                    <div class="relative group py-8 -my-8">
+                        <button class="nav-link flex items-center gap-1">
+                            Products
+                            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="6 9 12 15 18 9"/></svg>
+                        </button>
+                        <div class="dropdown absolute left-1/2 -translate-x-1/2 top-full mt-2 w-64 bg-white shadow-2xl border border-slate-100 rounded-lg overflow-hidden normal-case tracking-normal">
+                            <a href="#custom-erp" class="flex items-start gap-3 px-5 py-4 hover:bg-slate-50 transition border-b border-slate-100">
+                                <span class="w-2 h-2 rounded-full bg-teal mt-1.5 flex-shrink-0"></span>
+                                <span>
+                                    <span class="block font-bold text-navy text-sm">Custom ERP Platform</span>
+                                    <span class="block text-slate-500 text-xs mt-0.5">Heavy-equipment &amp; fleet rental ERP</span>
+                                </span>
+                            </a>
+                            <a href="#gymbinary" class="flex items-start gap-3 px-5 py-4 hover:bg-slate-50 transition">
+                                <span class="w-2 h-2 rounded-full bg-gold mt-1.5 flex-shrink-0"></span>
+                                <span>
+                                    <span class="block font-bold text-navy text-sm">GymBinary</span>
+                                    <span class="block text-slate-500 text-xs mt-0.5">Multi-tenant gym management SaaS</span>
+                                </span>
+                            </a>
+                        </div>
                     </div>
-                <div class="hidden lg:flex space-x-8 font-semibold text-[11px] uppercase tracking-[0.15em] text-slate-600">
-                    <a href="#services" class="nav-link">Services</a>
-                    <a href="#solutions" class="nav-link">Solutions</a>
-                    <a href="#innovations" class="nav-link">Innovations</a>
+
+                    <a href="#approach" class="nav-link">Approach</a>
+                    <a href="#innovation" class="nav-link">Innovation</a>
                     <a href="#careers" class="nav-link">Careers</a>
-                    <a href="#aboutus" class="nav-link">About US</a>
+                    <a href="#aboutus" class="nav-link">About</a>
                 </div>
-                <div>
-                    <a href="#contacts" class="bg-navy text-white px-6 py-2 text-xs font-bold uppercase hover:bg-cyan transition-all">
-                        Connect
-                    </a>
+
+                <div class="flex items-center gap-4">
+                    <a href="#contacts" class="hidden sm:inline-block bg-navy text-white px-6 py-2.5 text-xs font-bold uppercase tracking-widest hover:bg-teal transition-all">Connect</a>
+                    <button id="menu-btn" class="lg:hidden text-navy" aria-label="Open menu">
+                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- MOBILE MENU -->
+            <div id="mobile-panel" class="lg:hidden">
+                <div class="flex flex-col py-4 border-t border-slate-100 text-sm font-semibold uppercase tracking-widest text-slate-600">
+                    <a href="#capabilities" class="py-3">Capabilities</a>
+                    <span class="py-3 text-slate-400 text-[11px]">Products</span>
+                    <a href="#custom-erp" class="py-2 pl-4 text-navy normal-case tracking-normal font-bold">Custom ERP Platform</a>
+                    <a href="#gymbinary" class="py-2 pl-4 text-navy normal-case tracking-normal font-bold">GymBinary</a>
+                    <a href="#approach" class="py-3 mt-2">Approach</a>
+                    <a href="#innovation" class="py-3">Innovation</a>
+                    <a href="#careers" class="py-3">Careers</a>
+                    <a href="#aboutus" class="py-3">About</a>
+                    <a href="#contacts" class="mt-3 bg-navy text-white text-center py-3">Connect</a>
                 </div>
             </div>
         </div>
     </nav>
 
-    <section id="home" class="relative h-[85vh] flex items-center bg-navy overflow-hidden">
+    <!-- HERO -->
+    <section id="home" class="relative min-h-[88vh] flex items-center bg-navy overflow-hidden">
         <div class="absolute inset-0">
-            <img src="background.jpeg"class="w-full h-full object-cover" alt="Earth from Space">
+            <img src="background.jpeg" class="w-full h-full object-cover" alt="Global network of lights seen from orbit, representing connected digital infrastructure">
         </div>
         <div class="absolute inset-0 hero-overlay"></div>
-        <div class="max-w-7xl mx-auto px-6 relative z-10">
-            <h1 class="text-5xl md:text-7xl font-bold text-white mb-6">
-                Engineering <br><span class="text-cyan">Intelligence.</span>
+        <div class="absolute inset-0 dot-field opacity-30 mix-blend-screen pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10 py-24">
+            <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6 leading-[1.05]">
+                Custom software.<br>Engineered for the way<br><span class="text-teal">your business works.</span>
             </h1>
-            <p class="text-xl text-slate-200 max-w-2xl mb-10 leading-relaxed font-light">
-                Empowering global businesses with scalable digital ecosystems and precision-engineered technology solutions.
+            <p class="text-lg md:text-xl text-slate-300 max-w-2xl mb-10 leading-relaxed font-light">
+                Purpose-built enterprise applications, mobile solutions and intelligent automation, designed around real operational needs — not off-the-shelf assumptions.
             </p>
-            <div class="flex gap-4">
-                <a href="#solutions" class="bg-cyan text-white px-8 py-4 font-bold text-sm uppercase tracking-widest hover:bg-white hover:text-navy transition">View Solutions</a>
+            <div class="flex flex-wrap gap-4 mb-16">
+                <a href="#products" class="bg-teal text-navy px-8 py-4 font-bold text-sm uppercase tracking-widest hover:bg-white transition rounded-sm">Explore Our Products</a>
+                <a href="#capabilities" class="border border-white/30 text-white px-8 py-4 font-bold text-sm uppercase tracking-widest hover:border-white transition rounded-sm">See Capabilities</a>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl border-t border-white/10 pt-8">
+                <div>
+                    <div class="text-3xl font-bold text-gold">8</div>
+                    <div class="text-[11px] uppercase tracking-widest text-slate-400 mt-1">Core Capabilities</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-bold text-gold">2</div>
+                    <div class="text-[11px] uppercase tracking-widest text-slate-400 mt-1">Flagship Products</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-bold text-gold">18+</div>
+                    <div class="text-[11px] uppercase tracking-widest text-slate-400 mt-1">Yrs Enterprise IT</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-bold text-gold">3</div>
+                    <div class="text-[11px] uppercase tracking-widest text-slate-400 mt-1">Regions — India, UAE &amp; KSA</div>
+                </div>
             </div>
         </div>
     </section>
 
-     <!-- SERVICES -->
-    <section id="services" class="py-24 border-b border-slate-100">
-        <div class="max-w-7xl mx-auto px-6 text-center">
-            <span class="text-cyan font-bold text-xs uppercase tracking-widest">Capabilities</span>
-            <h2 class="text-3xl font-bold text-navy mt-2 mb-16">Technology Consulting</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-
-                <!-- Custom Software -->
-                <div class="service-card p-10 bg-slate-50 hover:bg-white hover:shadow-2xl rounded-xl text-center">
-                    <div class="service-icon">
-                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                            <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Custom Software</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed">Tailored to your specific workflow — built from the ground up to fit your business, not the other way around.</p>
-                </div>
-
-                <!-- Smart Billing & Booking -->
-                <div class="service-card p-10 bg-slate-50 hover:bg-white hover:shadow-2xl rounded-xl text-center">
-                    <div class="service-icon">
-                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="8" y1="14" x2="8" y2="14"/><line x1="12" y1="14" x2="12" y2="14"/><line x1="16" y1="14" x2="16" y2="14"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Smart Billing &amp; Booking</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed">Automate your sales and scheduling with intelligent systems that save time and eliminate manual errors.</p>
-                </div>
-
-                <!-- Web Development -->
-                <div class="service-card p-10 bg-slate-50 hover:bg-white hover:shadow-2xl rounded-xl text-center">
-                    <div class="service-icon">
-                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="2" y="3" width="20" height="14" rx="2"/><polyline points="8 21 12 17 16 21"/><line x1="2" y1="10" x2="22" y2="10"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Web Development</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed">Modern, fast and secure websites engineered for performance, built to convert and crafted to impress.</p>
-                </div>
-
-                <!-- Expert Consulting -->
-                <div class="service-card p-10 bg-slate-50 hover:bg-white hover:shadow-2xl rounded-xl text-center">
-                    <div class="service-icon">
-                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Expert Consulting</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed">18+ years of Fortune 100 IT expertise — strategic guidance that cuts through complexity and drives results.</p>
-                </div>
-
-                <!-- Digital Marketing -->
-                <div class="service-card p-10 bg-slate-50 hover:bg-white hover:shadow-2xl rounded-xl text-center">
-                    <div class="service-icon">
-                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Digital Marketing</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed">Data-driven campaigns across SEO, social and paid channels — engineered to grow your reach and maximise ROI.</p>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <section id="solutions" class="py-24 bg-white overflow-hidden">
+    <!-- CAPABILITIES -->
+    <section id="capabilities" class="py-24 border-b border-slate-100">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="flex flex-col lg:flex-row items-center gap-16">
+            <div class="text-center mb-16">
+                <span class="eyebrow">Core Expertise</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-navy mt-3">Technology capabilities built around business outcomes</h2>
+                <p class="text-slate-500 max-w-2xl mx-auto mt-4 leading-relaxed">Ziyabo combines consulting, architecture and engineering to deliver focused software that grows with the organisation.</p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+                <div class="card p-8 bg-white rounded-xl text-center">
+                    <div class="service-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                    </div>
+                    <h3 class="text-base font-bold mb-2">Custom Software</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">Tailored ERP, operational systems, portals and workflow applications engineered around real processes.</p>
+                </div>
+
+                <div class="card p-8 bg-white rounded-xl text-center">
+                    <div class="service-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+                    </div>
+                    <h3 class="text-base font-bold mb-2">Mobile Applications</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">Native and cross-platform apps for iOS and Android, plus mobile-first web experiences and PWAs.</p>
+                </div>
+
+                <div class="card p-8 bg-white rounded-xl text-center">
+                    <div class="service-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg>
+                    </div>
+                    <h3 class="text-base font-bold mb-2">Artificial Intelligence</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">AI-enabled product features, intelligent automation, agentic workflows and document intelligence.</p>
+                </div>
+
+                <div class="card p-8 bg-white rounded-xl text-center">
+                    <div class="service-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+                    </div>
+                    <h3 class="text-base font-bold mb-2">Enterprise Applications</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">Role-driven systems covering approvals, finance, operations, master data and auditability.</p>
+                </div>
+
+                <div class="card p-8 bg-white rounded-xl text-center">
+                    <div class="service-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
+                    </div>
+                    <h3 class="text-base font-bold mb-2">Cloud &amp; DevOps</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">Cloud-ready architecture, CI/CD, containerisation, environment strategy and observability.</p>
+                </div>
+
+                <div class="card p-8 bg-white rounded-xl text-center">
+                    <div class="service-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                    </div>
+                    <h3 class="text-base font-bold mb-2">Data &amp; Analytics</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">Operational dashboards, KPI visibility and data structures designed for actionable insight.</p>
+                </div>
+
+                <div class="card p-8 bg-white rounded-xl text-center">
+                    <div class="service-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><polyline points="8 21 12 17 16 21"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+                    </div>
+                    <h3 class="text-base font-bold mb-2">Web Engineering</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">Modern React-based experiences and API-driven applications built for performance and security.</p>
+                </div>
+
+                <div class="card p-8 bg-white rounded-xl text-center">
+                    <div class="service-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <h3 class="text-base font-bold mb-2">Technology Consulting</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">Architecture, modernisation and practical technical direction informed by enterprise delivery.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCTS INTRO -->
+    <section id="products" class="py-20 bg-navy relative overflow-hidden">
+        <div class="absolute inset-0 dot-field opacity-20"></div>
+        <div class="max-w-7xl mx-auto px-6 relative z-10 text-center">
+            <span class="eyebrow-gold">Our Products</span>
+            <h2 class="text-3xl md:text-4xl font-bold text-white mt-3 mb-4">Two platforms. Built, proven, in production.</h2>
+            <p class="text-slate-400 max-w-2xl mx-auto mb-12">Beyond consulting engagements, Ziyabo engineers and operates its own SaaS products end to end — from architecture to deployment to support.</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#custom-erp" class="border border-teal/60 text-teal px-6 py-3 text-xs font-bold uppercase tracking-widest hover:bg-teal hover:text-navy transition rounded-sm">Custom ERP Platform →</a>
+                <a href="#gymbinary" class="border border-gold/60 text-gold px-6 py-3 text-xs font-bold uppercase tracking-widest hover:bg-gold hover:text-navy transition rounded-sm">GymBinary →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CUSTOM ERP PLATFORM -->
+    <section id="custom-erp" class="py-24 bg-white scroll-mt-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col lg:flex-row items-center gap-16 mb-16">
                 <div class="lg:w-1/2">
-                    <span class="text-cyan font-bold text-xs uppercase tracking-widest">Scalability</span>
-                    <h2 class="text-4xl font-bold text-navy mt-2 mb-6">Ecosystem Solutions</h2>
-                    <p class="text-slate-600 text-lg leading-relaxed mb-8">
-                        Our multi-tenant platforms are engineered to support high-density user environments with seamless integration. From healthcare systems to management ecosystems, we deliver reliability at scale.
+                    <span class="eyebrow">Flagship Product</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-navy mt-3 mb-6">Custom ERP Platform</h2>
+                    <p class="text-slate-600 text-lg leading-relaxed mb-6">
+                        A comprehensive, enterprise-grade ERP for UAE heavy-equipment, fleet and rental businesses — engineered as one integrated platform across the organisation, connecting commercial, operational, financial and workforce processes.
                     </p>
-                    <div class="space-y-4">
-                        <div class="flex items-center gap-4 text-navy font-semibold"><span class="w-2 h-2 bg-cyan rounded-full"></span> Multi-Tenant Architectures</div>
-                        <div class="flex items-center gap-4 text-navy font-semibold"><span class="w-2 h-2 bg-cyan rounded-full"></span> International Data Security</div>
+                    <div class="grid grid-cols-2 gap-3 mb-8">
+                        <div class="flex items-center gap-2 text-sm font-semibold text-navy"><span class="w-1.5 h-1.5 rounded-full bg-teal"></span> Sales, CRM &amp; Quotations</div>
+                        <div class="flex items-center gap-2 text-sm font-semibold text-navy"><span class="w-1.5 h-1.5 rounded-full bg-teal"></span> Fleet &amp; Compliance Tracking</div>
+                        <div class="flex items-center gap-2 text-sm font-semibold text-navy"><span class="w-1.5 h-1.5 rounded-full bg-teal"></span> Finance &amp; Sub-Rental</div>
+                        <div class="flex items-center gap-2 text-sm font-semibold text-navy"><span class="w-1.5 h-1.5 rounded-full bg-teal"></span> HRMS, Payroll &amp; KPIs</div>
                     </div>
+                    <a href="#contacts" class="inline-block bg-navy text-white px-7 py-3.5 text-xs font-bold uppercase tracking-widest hover:bg-teal hover:text-navy transition rounded-sm">Request a Demo</a>
                 </div>
-                <div class="lg:w-1/2 relative">
-                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=2070" class="rounded-2xl shadow-2xl" alt="Data Solutions">
+                <div class="lg:w-1/2">
+                    <img src="https://images.unsplash.com/photo-1660367439240-d38cb03a4365?auto=format&fit=crop&q=80&w=1400" class="rounded-2xl shadow-2xl w-full h-[380px] object-cover" alt="Heavy equipment and crane at a UAE construction site, representative of the platform's fleet operations">
+                </div>
+            </div>
+
+            <div class="bg-slate-50 rounded-2xl p-10 md:p-14">
+                <span class="eyebrow">Integrated Modules</span>
+                <h3 class="text-2xl font-bold text-navy mt-2 mb-8">One ERP. End-to-end business control.</h3>
+                <div class="grid md:grid-cols-2 gap-x-12 gap-y-6">
+                    <div class="flex gap-3"><span class="mod-dot"></span><div><span class="font-bold text-navy text-sm">Sales &amp; CRM</span><p class="text-slate-500 text-sm mt-0.5">Enquiries, quotations, approvals, customer/site management and order conversion.</p></div></div>
+                    <div class="flex gap-3"><span class="mod-dot"></span><div><span class="font-bold text-navy text-sm">Rental &amp; Operations</span><p class="text-slate-500 text-sm mt-0.5">Rental orders, allocation, dispatch, delivery, installation and return.</p></div></div>
+                    <div class="flex gap-3"><span class="mod-dot"></span><div><span class="font-bold text-navy text-sm">Fleet &amp; Equipment</span><p class="text-slate-500 text-sm mt-0.5">Vehicle/equipment masters, lifecycle, availability, documents and traceability.</p></div></div>
+                    <div class="flex gap-3"><span class="mod-dot"></span><div><span class="font-bold text-navy text-sm">Finance &amp; Accounts</span><p class="text-slate-500 text-sm mt-0.5">Financial workflows, billing, receivables/payables and management visibility.</p></div></div>
+                    <div class="flex gap-3"><span class="mod-dot"></span><div><span class="font-bold text-navy text-sm">Purchase &amp; Procurement</span><p class="text-slate-500 text-sm mt-0.5">Supplier/vendor processes, purchasing, goods receipt and procurement control.</p></div></div>
+                    <div class="flex gap-3"><span class="mod-dot"></span><div><span class="font-bold text-navy text-sm">Inventory &amp; Warehousing</span><p class="text-slate-500 text-sm mt-0.5">Items, warehouses, stock movement, parts usage and inventory control.</p></div></div>
+                    <div class="flex gap-3"><span class="mod-dot"></span><div><span class="font-bold text-navy text-sm">Workshop &amp; Maintenance</span><p class="text-slate-500 text-sm mt-0.5">Service requests, technicians, preventive/corrective maintenance and parts.</p></div></div>
+                    <div class="flex gap-3"><span class="mod-dot"></span><div><span class="font-bold text-navy text-sm">HRMS &amp; Payroll</span><p class="text-slate-500 text-sm mt-0.5">Employees/drivers, attendance, leave, payroll, deductions, overtime and salaries.</p></div></div>
+                    <div class="flex gap-3"><span class="mod-dot"></span><div><span class="font-bold text-navy text-sm">Vendor &amp; Sub-Rental</span><p class="text-slate-500 text-sm mt-0.5">Supplier relationships and sub-rental operations integrated with equipment.</p></div></div>
+                    <div class="flex gap-3"><span class="mod-dot"></span><div><span class="font-bold text-navy text-sm">Approvals, Reports &amp; KPIs</span><p class="text-slate-500 text-sm mt-0.5">Role-based approvals, auditability, documents, dashboards and KPIs.</p></div></div>
+                </div>
+
+                <div class="mt-10 bg-navy rounded-xl p-8 flex flex-col md:flex-row items-start md:items-center gap-4 justify-between">
+                    <div>
+                        <span class="eyebrow-gold">Why It Matters</span>
+                        <p class="text-slate-200 mt-2 leading-relaxed max-w-2xl">This platform is Ziyabo's flagship demonstration of full-scale custom ERP engineering — a mature, modular system spanning front-office, operations, finance, procurement, inventory, maintenance and workforce management.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="innovations" class="py-24 bg-navy text-white">
+    <!-- GYMBINARY -->
+    <section id="gymbinary" class="py-24 bg-paper scroll-mt-20">
         <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col lg:flex-row-reverse items-center gap-16">
+                <div class="lg:w-1/2">
+                    <span class="eyebrow-gold">SaaS Product</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-navy mt-3 mb-6">GymBinary</h2>
+                    <p class="text-slate-600 text-lg leading-relaxed mb-6">
+                        A multi-tenant gym management platform built for gym owners across India — handling members, trainers, attendance, subscriptions, payments and workout support from one secure, branch-aware system.
+                    </p>
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-start gap-3">
+                            <span class="mod-dot"></span>
+                            <span class="text-navy font-semibold text-sm">Multi-tenant architecture with full data isolation across gyms and branches</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="mod-dot"></span>
+                            <span class="text-navy font-semibold text-sm">Member subscriptions, billing and payment tracking</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="mod-dot"></span>
+                            <span class="text-navy font-semibold text-sm">Trainer &amp; attendance management with role-based, branch-level access</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="mod-dot"></span>
+                            <span class="text-navy font-semibold text-sm">Progressive Web App experience — installable on mobile with no app-store friction</span>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="https://gymbinary.com" target="_blank" rel="noopener" class="inline-block bg-navy text-white px-7 py-3.5 text-xs font-bold uppercase tracking-widest hover:bg-gold hover:text-navy transition rounded-sm">Visit GymBinary.com</a>
+                        <a href="#contacts" class="inline-block border border-navy/20 text-navy px-7 py-3.5 text-xs font-bold uppercase tracking-widest hover:border-navy transition rounded-sm">Talk to Us</a>
+                    </div>
+                </div>
+                <div class="lg:w-1/2">
+                    <img src="https://images.unsplash.com/photo-1637430308606-86576d8fef3c?auto=format&fit=crop&q=80&w=1400" class="rounded-2xl shadow-2xl w-full h-[380px] object-cover" alt="Modern gym free-weight area, representative of GymBinary's gym operations platform">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- APPROACH -->
+    <section id="approach" class="py-24 bg-white border-t border-slate-100">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="eyebrow">Delivery Approach</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-navy mt-3">From business problem to working software</h2>
+                <p class="text-slate-500 max-w-2xl mx-auto mt-4 leading-relaxed">We keep discovery, architecture and implementation connected — so the business requirement stays visible in the software being built.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 lg:grid-cols-6 gap-6">
+                <div class="flex flex-col items-start gap-3">
+                    <span class="num-badge">01</span>
+                    <h3 class="font-bold text-navy text-sm uppercase tracking-wide">Discover</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">Processes, stakeholders, pain points and outcomes.</p>
+                </div>
+                <div class="flex flex-col items-start gap-3">
+                    <span class="num-badge">02</span>
+                    <h3 class="font-bold text-navy text-sm uppercase tracking-wide">Define</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">Workflows, roles, data, integrations, acceptance criteria.</p>
+                </div>
+                <div class="flex flex-col items-start gap-3">
+                    <span class="num-badge">03</span>
+                    <h3 class="font-bold text-navy text-sm uppercase tracking-wide">Architect</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">Application, security, database, cloud and integration design.</p>
+                </div>
+                <div class="flex flex-col items-start gap-3">
+                    <span class="num-badge">04</span>
+                    <h3 class="font-bold text-navy text-sm uppercase tracking-wide">Build</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">Incremental delivery of working software.</p>
+                </div>
+                <div class="flex flex-col items-start gap-3">
+                    <span class="num-badge">05</span>
+                    <h3 class="font-bold text-navy text-sm uppercase tracking-wide">Validate</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">Review against real operational scenarios.</p>
+                </div>
+                <div class="flex flex-col items-start gap-3">
+                    <span class="num-badge">06</span>
+                    <h3 class="font-bold text-navy text-sm uppercase tracking-wide">Improve</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">Refine automation, reporting and user experience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INNOVATION -->
+    <section id="innovation" class="py-24 bg-navy text-white relative overflow-hidden">
+        <div class="absolute inset-0 dot-field opacity-20"></div>
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
             <div class="grid md:grid-cols-2 gap-20 items-center">
                 <div class="grid grid-cols-2 gap-4">
                     <div class="h-40 bg-white/5 rounded-lg flex flex-col justify-center items-center p-6 border border-white/10">
-                        <span class="text-cyan text-3xl font-bold mb-2">AI</span>
-                        <span class="text-[10px] uppercase tracking-widest">Agentic Workflows</span>
+                        <span class="text-teal text-3xl font-bold mb-2">AI</span>
+                        <span class="text-[10px] uppercase tracking-widest text-center">Agentic Workflows</span>
                     </div>
                     <div class="h-40 bg-white/5 rounded-lg flex flex-col justify-center items-center p-6 border border-white/10 mt-8">
-                        <span class="text-cyan text-3xl font-bold mb-2">99%</span>
-                        <span class="text-[10px] uppercase tracking-widest">Uptime Precision</span>
+                        <span class="text-gold text-3xl font-bold mb-2">99%</span>
+                        <span class="text-[10px] uppercase tracking-widest text-center">Uptime Precision</span>
+                    </div>
+                    <div class="h-40 bg-white/5 rounded-lg flex flex-col justify-center items-center p-6 border border-white/10">
+                        <span class="text-teal text-3xl font-bold mb-2">2</span>
+                        <span class="text-[10px] uppercase tracking-widest text-center">Products in Production</span>
+                    </div>
+                    <div class="h-40 bg-white/5 rounded-lg flex flex-col justify-center items-center p-6 border border-white/10 mt-8">
+                        <span class="text-gold text-3xl font-bold mb-2">India · UAE · KSA</span>
+                        <span class="text-[10px] uppercase tracking-widest text-center">Delivery Regions</span>
                     </div>
                 </div>
                 <div>
-                    <span class="text-cyan font-bold text-xs uppercase tracking-widest">Innovation</span>
-                    <h2 class="text-4xl font-bold mt-2 mb-6">Intelligent Automation</h2>
+                    <span class="eyebrow-gold">Innovation</span>
+                    <h2 class="text-3xl md:text-4xl font-bold mt-3 mb-6">Intelligent Automation</h2>
                     <p class="text-slate-400 text-lg leading-relaxed">
-                        Ziyabo leverages proprietary AI-driven documentation and automated analysis tools to reverse-engineer complex systems and optimize project lifecycles.
+                        Ziyabo builds AI-enabled product features into its platforms — intelligent automation, agentic workflow concepts, document intelligence, and AI-assisted engineering practices that speed up delivery without cutting corners on quality.
                     </p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- CULTURE -->
     <section id="culture" class="py-24 bg-slate-50">
         <div class="max-w-7xl mx-auto px-6 text-center">
-            <span class="text-cyan font-bold text-xs uppercase tracking-widest">Philosophy</span>
-            <h2 class="text-3xl font-bold text-navy mt-2 mb-10">Our Culture</h2>
+            <span class="eyebrow">Philosophy</span>
+            <h2 class="text-3xl md:text-4xl font-bold text-navy mt-3 mb-10">Our Culture</h2>
             <div class="max-w-3xl mx-auto text-slate-600 leading-relaxed italic text-lg">
-                "We cultivate an environment where engineering excellence meets creative problem solving. At Ziyabo, intelligence isn't just in our code—it's in how we collaborate, innovate, and grow."
+                "We cultivate an environment where engineering excellence meets creative problem solving. At Ziyabo, intelligence isn't just in our code — it's in how we collaborate, innovate, and grow."
             </div>
         </div>
     </section>
 
+    <!-- TESTIMONIALS -->
     <section id="testimonials" class="py-24 bg-white">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16">
-                <span class="text-cyan font-bold text-xs uppercase tracking-widest">Client Speak</span>
-                <h2 class="text-3xl font-bold text-navy mt-2">Global Trust</h2>
+                <span class="eyebrow">Client Speak</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-navy mt-3">Global Trust</h2>
             </div>
             <div class="grid md:grid-cols-2 gap-8">
                 <div class="bg-white p-12 rounded-xl border border-slate-100 shadow-sm italic text-slate-600">
@@ -200,74 +471,101 @@
         </div>
     </section>
 
-    <section id="careers" class="py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-6 text-center">
-            <h2 class="text-3xl font-bold text-navy mb-12 uppercase tracking-widest">Careers</h2>
+    <!-- CAREERS -->
+    <section id="careers" class="relative py-24 bg-navy border-t border-slate-100 overflow-hidden">
+        <div class="absolute inset-0">
+            <img src="https://images.unsplash.com/photo-1758873269317-51888e824b28?auto=format&fit=crop&q=80&w=1600" class="w-full h-full object-cover opacity-25" alt="Diverse team collaborating together in a modern office">
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-r from-navy via-navy/95 to-navy/70"></div>
+        <div class="absolute inset-0 dot-field opacity-10"></div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="text-center mb-14">
+                <span class="eyebrow-gold">Join Us</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-white mt-3">Careers</h2>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12 items-center mb-16">
+                <p class="text-slate-300 text-lg leading-relaxed">
+                    We provide complete flexibility for our employees — the kind that attracts the best people and gives them the platform to learn and grow.
+                </p>
+                <p class="text-slate-300 text-lg leading-relaxed">
+                    We've cultivated a Fortune 100 work culture where everyone is respected and proud to be themselves — which is how we've held onto 100% of our team. We encourage fresh ideas and hands-on research into new technologies, and that culture of curiosity is exactly what drives the results our team delivers on innovation.
+                </p>
+            </div>
+
             <div class="grid md:grid-cols-2 gap-8 text-left">
-                <div class="group p-12 border border-slate-200 hover:border-cyan transition rounded-sm">
-                    <h3 class="text-xl font-bold mb-4">Experienced Professionals</h3>
-                    <p class="text-slate-500 text-sm mb-6">Drive global digital transformation as a senior architect or engineer.</p>
-                    <a href="#" class="text-xs font-bold uppercase tracking-[0.2em] text-navy group-hover:text-cyan">Join the Team →</a>
+                <div class="group p-12 border border-white/15 hover:border-teal transition rounded-sm bg-white/5 backdrop-blur-sm">
+                    <h3 class="text-xl font-bold mb-4 text-white">Experienced Professionals</h3>
+                    <p class="text-slate-400 text-sm mb-6">Drive global digital transformation as a senior architect or engineer.</p>
+                    <a href="#contacts" class="text-xs font-bold uppercase tracking-[0.2em] text-teal">Join the Team →</a>
                 </div>
-                <div class="group p-12 border border-slate-200 hover:border-cyan transition rounded-sm bg-slate-50">
-                    <h3 class="text-xl font-bold mb-4">Students &amp; Internships</h3>
-                    <p class="text-slate-500 text-sm mb-6">Graduate opportunities for BCA, BSc, BTech, and MCA candidates.</p>
-                    <a href="#" class="text-xs font-bold uppercase tracking-[0.2em] text-navy group-hover:text-cyan">Explore Internships →</a>
+                <div class="group p-12 border border-white/15 hover:border-gold transition rounded-sm bg-white/5 backdrop-blur-sm">
+                    <h3 class="text-xl font-bold mb-4 text-white">Students &amp; Internships</h3>
+                    <p class="text-slate-400 text-sm mb-6">Graduate opportunities for BCA, BSc, BTech, and MCA candidates.</p>
+                    <a href="#contacts" class="text-xs font-bold uppercase tracking-[0.2em] text-gold">Explore Internships →</a>
                 </div>
             </div>
         </div>
     </section>
-     <section id="aboutus" class="py-24 bg-slate-50">
+
+    <!-- ABOUT -->
+    <section id="aboutus" class="py-24 bg-slate-50">
         <div class="max-w-7xl mx-auto px-6 text-center">
-            <span class="text-cyan font-bold text-xs uppercase tracking-widest"></span>
-             <h2 class="text-3xl font-bold text-navy mt-2 mb-10">About Us</h2>
-            <div class="max-w-3xl mx-auto text-slate-600 leading-relaxed italic text-lg">
-                "Founded by veterans of Fortune 100 IT environments, Ziyabo brings 18+ years of enterprise-level expertise to the local business landscape. We bridge the gap between complex global standards and regional operational needs through disciplined engineering and strategic consulting. From scalable SaaS architectures to Agentic AI integration, we deliver high-performance digital ecosystems built to compete on a global stage"
+            <span class="eyebrow">Who We Are</span>
+            <h2 class="text-3xl md:text-4xl font-bold text-navy mt-3 mb-10">About Us</h2>
+            <div class="max-w-3xl mx-auto text-slate-600 leading-relaxed italic text-lg mb-12">
+                "Founded by veterans of Fortune 100 IT environments, Ziyabo brings 18+ years of enterprise-level expertise to the local business landscape. We bridge the gap between complex global standards and regional operational needs through disciplined engineering and strategic consulting. From scalable SaaS architectures to agentic AI integration, we deliver high-performance digital ecosystems built to compete on a global stage."
+            </div>
+            <div class="flex flex-wrap justify-center gap-4">
+                <span class="text-xs font-bold uppercase tracking-widest bg-navy text-white px-5 py-2.5 rounded-full">Consulting</span>
+                <span class="text-xs font-bold uppercase tracking-widest bg-navy text-white px-5 py-2.5 rounded-full">Architecture</span>
+                <span class="text-xs font-bold uppercase tracking-widest bg-navy text-white px-5 py-2.5 rounded-full">Engineering</span>
             </div>
         </div>
     </section>
 
-    <footer id="contacts" class="bg-navy py-12 text-white border-t border-white/10">
-    <div class="max-w-7xl mx-auto px-6">
+    <!-- FOOTER -->
+    <footer id="contacts" class="bg-navy py-16 text-white border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-6">
 
-        <!-- Contact Sections -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mb-10">
-            
-            <!-- India Office -->
-            <div>
-                <h3 class="text-sm font-semibold uppercase tracking-widest text-white mb-4">
-                   India
-                </h3>
-                <p class="text-slate-400 text-sm leading-7">
-                    Shornur, Palakkad <br>
-                    +91 8129905061
-                </p>
+            <div class="flex flex-col md:flex-row justify-between gap-10 mb-12 pb-12 border-b border-white/10">
+                <div class="max-w-sm">
+                    <img src="Ziyabo_logo_mark.png" alt="Ziyabo" style="height:34px; width:auto; filter: brightness(0) invert(1);" class="mb-1.5">
+                    <span class="block text-[10px] font-bold uppercase tracking-[0.3em] text-slate-500 mb-4">Engineering Intelligence</span>
+                    <p class="text-slate-400 text-sm leading-relaxed">Engineering intelligence for businesses that need software to fit the operation — not the other way around.</p>
+                </div>
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-10">
+                    <div>
+                        <h3 class="text-sm font-semibold uppercase tracking-widest text-teal mb-4">India</h3>
+                        <p class="text-slate-400 text-sm leading-7">Shornur, Palakkad<br>+91 8129905061</p>
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-semibold uppercase tracking-widest text-gold mb-4">UAE</h3>
+                        <p class="text-slate-400 text-sm leading-7">Zahrath Al Madan Bldg.<br>Near DIB Bank, Al Qusais 2<br>Dubai — UAE<br>+971 52 184 8128</p>
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-semibold uppercase tracking-widest text-teal mb-4">Saudi Arabia</h3>
+                        <p class="text-slate-400 text-sm leading-7">Client engagements &amp; delivery across the Kingdom.</p>
+                    </div>
+                </div>
             </div>
 
-            <!-- Middle East Office -->
-            <div>
-                <h3 class="text-sm font-semibold uppercase tracking-widest text-white mb-4">
-                    Middle East
-                </h3>
-                <p class="text-slate-400 text-sm leading-7">
-                    Zahrath Al Madan Bldg. <br>
-                    Near DIB Bank, Al Qusais 2 <br>
-                    Dubai - UAE<br>
-                     +971521848128 
-                </p>
+            <div class="flex flex-col md:flex-row justify-between items-center text-xs uppercase tracking-widest text-slate-400">
+                <div>© 2026 Ziyabo IT Solutions</div>
+                <div class="my-4 md:my-0">ziyabo.com | ziyabo.in</div>
+                <div>Engineering Intelligence.</div>
             </div>
 
         </div>
+    </footer>
 
-        <!-- Bottom Footer -->
-        <div class="flex flex-col md:flex-row justify-between items-center text-xs uppercase tracking-widest text-slate-400 border-t border-white/10 pt-6">
-            <div>© 2026 Ziyabo IT Solutions</div>
-            <div class="my-4 md:my-0">ziyabo.com | ziyabo.in</div>
-            <div>Engineering Intelligence.</div>
-        </div>
-
-    </div>
-</footer>
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const panel = document.getElementById('mobile-panel');
+        menuBtn.addEventListener('click', () => panel.classList.toggle('open'));
+        panel.querySelectorAll('a').forEach(a => a.addEventListener('click', () => panel.classList.remove('open')));
+    </script>
 
 </body>
 </html>
