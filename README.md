@@ -1,95 +1,111 @@
-# Ziyabo website — expanded company and portfolio edition
+# Ziyabo corporate website — Equipro product edition
 
-Updated 2 October 2026 using the owner’s confirmed business information, the supplied Business Capability Showcase, the approved logo and images/careers content from ziyabo.com.
+Updated 23 October 2026.
 
-## Preview
+## Open locally
 
-Extract the ZIP and open `ziyabo-website/index.html`. No build step or dependency installation is required.
+Extract the ZIP, then open `ziyabo-website/index.html`. The website uses static HTML, CSS and JavaScript; no npm install or build is required.
 
-For a local web-server preview, run from this folder:
+For a local web-server preview, run from the website folder:
 
 ```sh
 python3 -m http.server 8080
 ```
 
-Open `http://localhost:8080`.
+Open http://localhost:8080.
 
-## What is included
+## Product and case-study hierarchy
 
-- Homepage with live flagship solutions, eight capabilities, AI/cloud expertise, customer feedback, wider portfolio, delivery process, culture and careers.
-- `services.html` — Custom Software, Enterprise Applications, Artificial Intelligence, Cloud & DevOps, Mobile Technology, Data & Analytics, Web Engineering and Technology Consulting.
-- `work.html` — EasyLift ERP and GymBinary, live usage and ongoing enhancement, customer feedback and seven additional portfolio solutions.
-- `about.html` — combined team capability, culture and India/UAE presence.
-- `careers.html` — experienced-professional and fresher/internship routes, resume email links and work culture.
-- `contact.html` — business and product email addresses, both offices, and a project brief that prepares email or WhatsApp messages.
-- `privacy.html`, `404.html`, `robots.txt`, `sitemap.xml`.
-- Locally hosted logo, fonts, photos, shared CSS and JavaScript.
+- **Ziyabo Equipro** is the product: **Fleet & Equipment Operations ERP**.
+- Product message: **One platform. Every operation. Complete control.**
+- **EasyLift** is a live client implementation, presented under **Case Studies**.
+- **GymBinary** remains a separate live SaaS product.
+- Other portfolio solutions remain secondary to Equipro and GymBinary.
 
-## Confirmed information reflected in this revision
+No “Book a demo” or other demo CTA is included. Equipro uses “Discuss your requirements”, email enquiries and capability exploration. The product page describes module scope without implying every planned function is already deployed for every client.
 
-- EasyLift ERP and GymBinary are LIVE with business users. Parallel customisation and enhancements do not imply pre-launch status.
-- AI and cloud are team capabilities, alongside application development, architecture, consulting and support. General marketing copy is technology-neutral and contains no .NET/React stack restriction.
-- Flagship prominence belongs to EasyLift ERP and GymBinary. Wider portfolio: WorkflowAI, Academic CRM, FMCG Van Sales, BoutiquePOS, AuditReady, Cognanatic Solutions and ClinicAssist. No unsupported live status is assigned to the other solutions.
-- India: Shornur, Palakkad, Kerala; +91 8129905061.
-- UAE: Zahrath Al Madan Bldg., Near DIB Bank, Al Qusais 2, Dubai — UAE; +971 52 184 8128.
-- Business and careers email: contact@ziyabo.com.
-- GymBinary email: contact@gymbinary.com.
+## Navigation and pages
 
-The most recent message listed the UAE number as +971 52 184 812, missing the final digit. This package uses +971 52 184 8128, matching both the supplied PDF and the existing public website. It is used consistently in display, telephone links and structured data.
+The shared navigation contains:
 
-## Customer feedback
+- Services — grouped mega-menu covering existing eight capabilities and delivery/support.
+- Products — Ziyabo Equipro, GymBinary and the wider portfolio.
+- Industries — equipment/crane rental, fleet/transport, fitness and additional portfolio domains.
+- Case Studies — index and dedicated EasyLift implementation page.
+- Insights — three original practical perspectives, each with a complete article page.
+- Company — About, Life at Ziyabo and delivery approach.
+- Careers — experienced professionals, freshers and internship enquiries.
+- Contact — India/UAE offices and email/WhatsApp enquiry preparation.
 
-Arun and Riyas Alikkal have dedicated customer-feedback cards on the homepage and their respective work sections. Wording is an attributed third-person summary of feedback provided by the owner; it is not presented as a verbatim quote or audio/video transcript. Arun’s role and bodybuilding credentials are taken from the user’s supplied information. Review the final wording with the customers before promoting it as their direct quotation. No star ratings, invented portraits or unrelated anonymous testimonials are used.
+New key pages:
 
-## Contact functionality
+- `equipro.html` — product landing page, capability tabs, industry fit, implementation and FAQs.
+- `products.html` — flagship product index and wider solution portfolio.
+- `gymbinary.html` — dedicated GymBinary product page.
+- `case-studies.html` — client implementation index.
+- `easylift-case-study.html` — EasyLift business context, live implementation, coverage and feedback.
+- `industries.html` — industry needs and relevant solutions.
+- `approach.html` — discovery through ongoing support.
+- `insights.html` — perspective index.
+- `connected-rental-operations.html`, `phased-erp-implementation.html`, `practical-ai-workflows.html` — complete perspective articles.
 
-The project form validates the required fields and prepares a message locally in the browser. The visitor reviews it before choosing a delivery method:
+Existing About, Careers, Contact, Privacy and 404 pages are retained. `work.html` remains a compatibility page so earlier `#easylift`, `#gymbinary` and `#portfolio` links still lead visitors to the correct content.
 
-- Email: opens the visitor’s configured email app. GymBinary selections go to contact@gymbinary.com; all other selections go to contact@ziyabo.com.
-- WhatsApp: opens the prepared message to the existing Indian Ziyabo number. The visitor must press Send in WhatsApp.
-- Career links: open email drafts to contact@ziyabo.com with different subjects for experienced applicants and freshers/internships. The applicant attaches a resume before sending.
+## Interaction
 
-No message is sent automatically. The site contains no server-side form submission, lead database, email service credentials or resume upload endpoint. A visitor without a configured email client can copy the displayed address into webmail or use WhatsApp for a project enquiry. The site does not claim an enquiry or application has been submitted.
+- Services/product/industry/company menus use native disclosure elements, with keyboard access, Escape closure and outside-click handling.
+- Mobile navigation retains the previous menu behaviour.
+- Equipro capability tabs support click, arrow keys, Home and End. All capability text remains available without JavaScript.
+- Product FAQs use native accessible disclosures.
+- The contact form supports preselected “Ziyabo Equipro” enquiries.
+- An enquiry is prepared locally for review. Email opens a draft to contact@ziyabo.com; GymBinary enquiries use contact@gymbinary.com. WhatsApp prepares a message to the existing Indian number. The visitor must send the message.
+- Resume links open email drafts; visitors attach and send their own resumes.
 
-The form stores no browser data. Privacy copy describes the actual behaviour. If you later add analytics, an email delivery API, CRM or upload service, update the implementation and privacy notice together.
+There is no backend email delivery, CRM, analytics, tracking cookie or automatic sending. No credentials are included.
 
-## Images and typography
+## Deploy to the existing website
 
-The approved supplied logo is preserved unchanged. Representative industry and collaboration photos are reused from the image URLs on ziyabo.com, downloaded and served locally. They are identified as representative/illustrative; they are not represented as actual EasyLift assets, product screenshots, PureFitness premises or Ziyabo employees.
+Upload the contents of `ziyabo-website/` to the root of the current static host, preserving the `assets/` folder and all HTML filenames. This delivery does not change the live domain or hosting.
 
-The supplied logo is 437 × 230 pixels. It is used at restrained display sizes without reconstructing its lettering. An approved vector master can replace it later.
+After deployment, the intended product URL is:
 
-Manrope is locally hosted at regular, semibold and bold weights, with its SIL Open Font License in `assets/Manrope-LICENSE.txt`. No external font requests are made. Image and font sources are recorded in `ASSET_SOURCES.md`.
+`https://ziyabo.com/equipro.html`
 
-## Hosting
+Use this in product outreach only after confirming the deployed page opens correctly. The case-study URL is `https://ziyabo.com/easylift-case-study.html`.
 
-Upload the contents of `ziyabo-website/` to the root of your existing static hosting project. This package does not change the live website or DNS.
+Canonical URLs and sitemap assume https://ziyabo.com/. Hosting controls HTTPS, redirects, 404 handling and security headers. If your host changes URLs to extensionless routes, update links, canonicals and sitemap together. If adding a strict CSP, account for or refactor the small inline enhancement and structured-data scripts.
 
-- Canonical URLs and sitemap assume https://ziyabo.com/.
-- HTML paths include `.html` for direct preview and static-host portability.
-- Configure the preferred domain, HTTPS and alternative-domain redirects with your host.
-- Configure the supplied 404 page if your host does not recognise it automatically.
-- HTTP security headers belong in the host configuration. Any CSP must accommodate the inline enhancement script and JSON-LD, or move/hash them appropriately.
-- Keep the exact registered legal entity name current in legal/footer content. The customer-facing company name here is Ziyabo Technologies.
+## Design and assets
 
-## Maintenance
+- Approved Ziyabo logo preserved unchanged.
+- Manrope served locally with its open-source licence.
+- Equipro uses a coordinated navy, teal and amber presentation; the master company brand remains consistent.
+- Existing approved industry photos are reused. They represent the sector, not actual EasyLift assets or application screenshots.
+- Existing customer-feedback summaries, culture and career information remain in place.
+- No founding date, decade-long company history, fabricated certification, client count or numerical outcome is invented.
 
-Shared styles and behaviour are in `assets/styles.css` and `assets/site.js`. HTML pages are standalone; update repeated headers, footers and structured data consistently.
+The techcarrot screenshot informed the grouped navigation structure, not Ziyabo’s service claims or branding.
 
-The package preserves mobile navigation, keyboard access, reduced-motion handling, project enquiry preparation, responsive layouts, search metadata, privacy page and sitemap. It adds careers, email preparation, offices, real industry images and wider content.
+## Maintain the code
 
-Production hosting configuration, mailbox delivery and external account availability are separate from local website checks. No test messages or resumes were sent.
+- `assets/styles.css`: retained base design and existing responsive components.
+- `assets/corporate.css`: grouped navigation, corporate homepage, Equipro and new page styles.
+- `assets/site.js`: menu, enquiry, disclosure and capability-tab behaviour.
+
+Pages are standalone. Keep repeated navigation/footer and metadata consistent when editing. All imagery and fonts are local.
+
+See `IMPROVEMENTS.md` for the next useful content and conversion upgrades.
 
 ## Verification completed
 
-- Internal file and fragment links, local assets, unique IDs and page headings checked.
-- Old pre-launch status wording and stack-limiting technology references removed from public HTML.
-- JavaScript syntax validated.
-- Seven main pages checked in Chromium at 1440, 768, 390 and 320 pixel widths: no horizontal overflow and all images decoded successfully.
-- Mobile menu, Escape-to-close behaviour and navigation with JavaScript disabled checked.
-- Project topic preselection, message preview, URL encoding, and clearing stale previews after edits checked.
-- GymBinary email route, general enquiry email route and both resume email subjects checked.
-- Homepage, Work, Contact and Careers renders reviewed, including mobile customer feedback.
-- No browser JavaScript errors during checks; no messages or applications sent.
+- All 19 HTML pages checked at 1440, 1024, 768, 390 and 320 pixel widths: no horizontal overflow; local images loaded successfully.
+- Internal file/fragment links, unique IDs and one main heading per page verified.
+- No demo wording remains in public HTML.
+- Desktop and mobile disclosure menus checked, including Escape and outside-click handling.
+- Equipro tabs checked with pointer, arrow keys and Home; FAQs checked.
+- Equipro/GymBinary contact preselection and email destinations checked; edited briefs clear stale previews.
+- Navigation and complete module content remain accessible with JavaScript disabled.
+- Desktop/mobile homepage and Equipro renders and the services mega-menu visually reviewed.
+- No JavaScript errors observed; no messages sent.
 
-Homepage desktop and mobile previews are provided in the ZIP’s `previews/` folder. They are review images, not files you need to deploy.
+External mailbox delivery, live hosting configuration and production publication were not performed by these local checks.

@@ -57,3 +57,47 @@ if (form) {
     document.querySelector('#result-title').focus();
   });
 }
+
+// Native disclosure menus work with keyboard, pointer and without JavaScript.
+const disclosures = [...document.querySelectorAll('.nav-disclosure')];
+function closeDisclosures(except = null) {
+  disclosures.forEach(item => { if (item !== except) item.open = false; });
+}
+disclosures.forEach(item => {
+  item.addEventListener('toggle', () => { if (item.open) closeDisclosures(item); });
+  item.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && item.open) {
+      event.stopPropagation();
+      item.open = false;
+      item.querySelector('summary').focus();
+    }
+  });
+});
+document.addEventListener('click', event => {
+  if (!event.target.closest('.nav-disclosure')) closeDisclosures();
+});
+window.matchMedia('(min-width: 1001px)').addEventListener('change', () => closeDisclosures());
+
+// Capability explorer: tab panels remain readable when JavaScript is unavailable.
+document.querySelectorAll('[data-tabs]').forEach(explorer => {
+  const tabs = [...explorer.querySelectorAll('[role="tab"]')];
+  function activate(index, focus = false) {
+    tabs.forEach((tab, i) => {
+      tab.setAttribute('aria-selected', String(i === index));
+      tab.tabIndex = i === index ? 0 : -1;
+      document.getElementById(tab.getAttribute('aria-controls')).hidden = i !== index;
+    });
+    if (focus) tabs[index].focus();
+  }
+  tabs.forEach((tab, index) => {
+    tab.addEventListener('click', () => activate(index));
+    tab.addEventListener('keydown', event => {
+      const actions = {ArrowRight:(index+1)%tabs.length, ArrowLeft:(index-1+tabs.length)%tabs.length, Home:0, End:tabs.length-1};
+      if (Object.hasOwn(actions, event.key)) {
+        event.preventDefault();
+        activate(actions[event.key], true);
+      }
+    });
+  });
+  activate(0);
+});

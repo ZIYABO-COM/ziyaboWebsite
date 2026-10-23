@@ -26,3 +26,11 @@ License source: https://raw.githubusercontent.com/google/fonts/main/ofl/manrope/
 - Existing careers/culture sections at https://ziyabo.com/#careers. Relevant themes and graduate routes adapted; numerical retention claims and Fortune 100 comparisons were not carried over without supporting detail.
 
 Third-party image licensing history was not independently audited; the images are reused from the owner’s existing site as requested.
+
+## 23 October 2026 Equipro revision
+
+- Product name and separation of product/case-study content: user-confirmed Ziyabo Equipro request and retrieved ERP marketing decisions.
+- Navigation reference: user-supplied techcarrot services-menu screenshot; used for information architecture inspiration only.
+- Existing website was read to confirm current content. All existing brand images and local font assets remain in use; no new third-party images were added.
+- Shared ChatGPT URL could not be opened directly; prior marketing decisions were retrieved through project context, with the current user instruction governing the name and scope.
+- Insight articles are original Ziyabo perspectives about workflow discovery, phased implementation and AI evaluation. They do not claim published research or measured client outcomes.
